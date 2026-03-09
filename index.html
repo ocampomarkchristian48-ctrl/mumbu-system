@@ -1,104 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <title>Logic Math Challenge</title>
-
-<style>
-
-body{
-font-family: Arial;
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#141e30,#243b55);
-overflow:hidden;
-color:white;
-}
-
-/* floating math symbols */
-
-.mathBackground span{
-position:absolute;
-font-size:50px;
-opacity:0.07;
-animation:float 15s infinite;
-}
-
-.mathBackground span:nth-child(1){top:10%;left:20%;}
-.mathBackground span:nth-child(2){top:30%;left:70%;}
-.mathBackground span:nth-child(3){top:80%;left:10%;}
-.mathBackground span:nth-child(4){top:60%;left:85%;}
-.mathBackground span:nth-child(5){top:15%;left:50%;}
-.mathBackground span:nth-child(6){top:70%;left:60%;}
-.mathBackground span:nth-child(7){top:45%;left:10%;}
-.mathBackground span:nth-child(8){top:25%;left:80%;}
-.mathBackground span:nth-child(9){top:65%;left:40%;}
-.mathBackground span:nth-child(10){top:85%;left:70%;}
-
-@keyframes float{
-0%{transform:translateY(0)}
-50%{transform:translateY(-40px)}
-100%{transform:translateY(0)}
-}
-
-.container{
-background:white;
-color:black;
-padding:40px;
-border-radius:15px;
-width:520px;
-text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-z-index:2;
-}
-
-.title{
-font-size:35px;
-margin-bottom:20px;
-}
-
-input{
-padding:10px;
-width:80%;
-font-size:16px;
-margin-bottom:20px;
-border-radius:8px;
-border:1px solid gray;
-}
-
-button{
-padding:12px;
-margin:10px;
-font-size:16px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-background:#2563eb;
-color:white;
-width:100%;
-}
-
-button:hover{
-background:#1e40af;
-}
-
-.choice{
-display:block;
-}
-
-.hidden{
-display:none;
-}
-
-#score{
-font-weight:bold;
-margin-top:15px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+<div class="mathBackground">
+<span>+</span>
+<span>-</span>
+<span>×</span>
+<span>÷</span>
+<span>LOGIC</span>
+<span>MATH</span>
+<span>SET</span>
+<span>FUNCTION</span>
+<span>GROUP</span>
+<span>THINK</span>
+</div>
+
+<div class="container">
+
+<h1 class="title">🧠 Logic Math Challenge</h1>
+
+<div id="startScreen">
+
+<h2>Enter Your Name</h2>
+<input id="playerName" placeholder="Your name">
+
+<button onclick="startGame()">Start Game</button>
+
+</div>
+
+<div id="gameScreen" class="hidden">
+
+<h2 id="question"></h2>
+
+<button class="choice" onclick="answer(0)"></button>
+<button class="choice" onclick="answer(1)"></button>
+<button class="choice" onclick="answer(2)"></button>
+<button class="choice" onclick="answer(3)"></button>
+
+<p id="score">Score: 0</p>
+
+</div>
+
+<div id="resultScreen" class="hidden">
+
+<h2>Game Finished</h2>
+<p id="finalScore"></p>
+
+<button onclick="restartGame()">Play Again</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
